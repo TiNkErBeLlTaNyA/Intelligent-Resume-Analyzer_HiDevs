@@ -1,14 +1,11 @@
 {
-    "name": "Tanya Agarwal",
-    "email": "tanya123@gmail.com",
+    "name": "erty",
+    "email": "ert@gmail.com",
     "skills": [
         "Python",
-        "SQL",
-        "Power BI",
-        "Excel",
-        "Data Analysis"
+        "SQL"
     ],
     "experience": 2,
-    "match_score": 75,
-    "recommendation": "Highly Recommended"
+    "match_score": 50,
+    "recommendation": "Consider for Interview"
 }

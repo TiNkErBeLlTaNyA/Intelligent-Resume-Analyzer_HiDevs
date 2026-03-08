@@ -1,14 +1,6 @@
 import re
 import json
 
-# Sample resume text
-resume_text = """
-Name: Tanya Agarwal
-Email: tanya123@gmail.com
-Skills: Python, SQL, Power BI, Excel, Data Analysis
-Experience: 2 years
-"""
-
 # Job required skills
 job_skills = ["Python", "SQL", "Machine Learning", "Power BI"]
 
@@ -18,9 +10,22 @@ skill_database = [
     "Machine Learning", "Data Analysis", "Tableau"
 ]
 
+# -------- USER INPUT --------
+name_input = input("Enter candidate name: ")
+email_input = input("Enter email: ")
+skills_input = input("Enter skills (comma separated): ")
+experience_input = input("Enter years of experience: ")
+
+# Create resume text dynamically
+resume_text = f"""
+Name: {name_input}
+Email: {email_input}
+Skills: {skills_input}
+Experience: {experience_input} years
+"""
+
 
 def extract_name(text):
-    """Extract candidate name from resume."""
     for line in text.split("\n"):
         if "Name:" in line:
             return line.split(":")[1].strip()
@@ -28,14 +33,12 @@ def extract_name(text):
 
 
 def extract_email(text):
-    """Extract email using regex."""
     pattern = r'\S+@\S+'
     match = re.search(pattern, text)
     return match.group() if match else "Not Found"
 
 
 def extract_skills(text, skills):
-    """Identify skills present in resume."""
     found = []
     for skill in skills:
         if skill.lower() in text.lower():
@@ -44,28 +47,30 @@ def extract_skills(text, skills):
 
 
 def extract_experience(text):
-    """Extract years of experience."""
     pattern = r'(\d+)\s+years'
     match = re.search(pattern, text.lower())
     return int(match.group(1)) if match else 0
 
 
-def calculate_match(candidate_skills, required_skills):
-    """Calculate skill match score."""
+def calculate_match(candidate_skills, required_skills, experience):
     if not required_skills:
         return 0
 
     matched = set(candidate_skills).intersection(required_skills)
-    score = (len(matched) / len(required_skills)) * 100
-    return round(score)
+    skill_score = (len(matched) / len(required_skills)) * 100
+
+    # Experience contribution (max 20 points)
+    experience_score = min(experience * 5, 20)
+
+    final_score = skill_score * 0.8 + experience_score
+    return round(final_score)
 
 
 def generate_recommendation(score):
-    """Generate hiring recommendation."""
     if score >= 70:
         return "Highly Recommended"
     elif score >= 40:
-        return "Recommended"
+        return "Consider for Interview"
     return "Not Recommended"
 
 
@@ -77,7 +82,7 @@ try:
     experience = extract_experience(resume_text)
 
     # Match Score Calculation
-    match_score = calculate_match(skills, job_skills)
+    match_score = calculate_match(skills, job_skills, experience)
 
     # Recommendation
     recommendation = generate_recommendation(match_score)
