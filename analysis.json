@@ -1,0 +1,14 @@
+{
+    "name": "Tanya Agarwal",
+    "email": "tanya123@gmail.com",
+    "skills": [
+        "Python",
+        "SQL",
+        "Power BI",
+        "Excel",
+        "Data Analysis"
+    ],
+    "experience": 2,
+    "match_score": 75,
+    "recommendation": "Highly Recommended"
+}
