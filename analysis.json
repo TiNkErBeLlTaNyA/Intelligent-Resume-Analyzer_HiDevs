@@ -1,11 +1,10 @@
 {
-    "name": "erty",
-    "email": "ert@gmail.com",
+    "name": "tanya",
+    "email": "tan12@gmail.com",
     "skills": [
-        "Python",
-        "SQL"
+        "Python"
     ],
-    "experience": 2,
-    "match_score": 50,
-    "recommendation": "Consider for Interview"
+    "experience": 0,
+    "match_score": 20,
+    "recommendation": "Not Recommended"
 }
