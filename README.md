@@ -32,3 +32,12 @@ This tool helps recruiters quickly evaluate candidates based on their skills and
 2. Navigate to the project folder
 3. Run the program:
  python resume_analyzer.py
+
+---
+
+## Project Demo Video
+You can watch the full project demonstration here:
+[Watch the Demo Video](https://youtu.be/tAWWIOu7OpU)
+
+---
+## Thank You
